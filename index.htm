@@ -1,0 +1,231 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>泰坦尼克号</title>
+<style type="text/css">
+
+#picBox{width:620px; height:500px; margin:50px auto; overflow:hidden; 
+
+position:relative;}
+#picBox ul#show_pic{
+	margin:0;
+	padding:0;
+	list-style:none;
+	height:500px;
+	width:3350px;
+	position:absolute;
+	top: -61px;
+}
+#picBox ul#show_pic li{ float:left; margin:0; padding:0; height:500px;}
+#picBox ul#show_pic li img{ display:block;}
+#icon_num{ position:absolute; bottom:0px; right:10px;}
+#icon_num li{ float:left; width:15px; height:15px; list-style:none; color:#39F; 
+
+text-align:center;  cursor:pointer; padding:0; margin:0;margin-right:5px;}
+#icon_num li:hover,#icon_num li.active{ color:#fff;}
+#picBox_top{width:400px; height:500px; margin:50px auto; position:relative; 
+
+overflow:hidden;}
+#picBox_top ul#show_pic_top{ margin:0; padding:0; list-style:none; height:500px; 
+
+width:400px; position:absolute;}
+#picBox_top ul#show_pic_top li{ float:left; margin:0; padding:0; height:500px;}
+#picBox_top ul#show_pic_top li img{ display:block;}
+#icon_num_top{ position:absolute; bottom:0px; right:10px;}
+#icon_num_top li{ float:left;width:15px; height:15px; list-style:none; color:#39F; 
+
+text-align:center;  cursor:pointer; padding:0; margin:0;margin-right:5px;}
+#icon_num_top li:hover,#icon_num_top li.active{color:#fff;}
+<!--
+body {
+	background-color: #CFF;
+}
+
+
+.STYLE5 {color: #000000}
+.STYLE6 {font-size: x-large}
+
+-->
+             </style>
+</head>
+
+<body>
+<body>
+<div align="center">
+<p></p>
+  <h1><B>泰坦尼克号</B>
+      <embed src="music/Destiny.mp3" volume="100" width="0" height="0" hidden="FALSE" autostart="true"  ></embed>
+  </h1>
+</div>
+<hr width="1500" size="1" color="#0000FF">
+  <marquee direction=left height=50 onMouseOut=this.start() onMouseOver=this.stop()
+        scrollamount=2 scrolldelay=50 width="100%">
+  <h4><IMG height=15 src="photo/d.gif" width=15>欢迎观看泰坦尼克号！  </h4>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  </marquee>
+<table width="1344" border="0">
+  <tr>
+    <td width="623" rowspan="6"><div id="picBox">
+      <ul id="show_pic" style="left:1px;">
+        <li><img src="photo/tai1.jpg" width="623" height="500" /></li>
+        <li><img src="photo/tai2.jpg" width="623" height="500" /></li>
+        <li><img src="photo/tai4.jpg" width="623" height="500" /></li>
+        <li><img src="photo/tai5.jpg" width="623" height="500" /></li>
+        <li><img src="photo/tai6.jpg" width="623" height="500" /></li>
+      </ul>
+      <ul id="icon_num">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+var glide =new function(){
+ function $id(id){return document.getElementById(id);};
+ this.layerGlide=function(auto,oEventCont,oSlider,sSingleSize,second,fSpeed,point){
+  var oSubLi = $id(oEventCont).getElementsByTagName('li');
+  var interval,timeout,oslideRange;
+  var time=1; 
+  var speed = fSpeed 
+  var sum = oSubLi.length;
+  var a=0;
+  var delay=second * 1000; 
+  var setValLeft=function(s){
+   return function(){
+    oslideRange = Math.abs(parseInt($id(oSlider).style[point])); 
+    $id(oSlider).style[point] =-Math.floor(oslideRange+(parseInt(s*sSingleSize) - 
+
+oslideRange)*speed) +'px';  
+    if(oslideRange==[(sSingleSize * s)]){
+     clearInterval(interval);
+     a=s;
+    }
+   }
+  };
+  var setValRight=function(s){
+   return function(){   
+    oslideRange = Math.abs(parseInt($id(oSlider).style[point]));       
+    $id(oSlider).style[point] =-Math.ceil(oslideRange+(parseInt(s*sSingleSize) - 
+
+oslideRange)*speed) +'px';
+    if(oslideRange==[(sSingleSize * s)]){
+     clearInterval(interval);
+     a=s;
+    }
+   }
+  }
+  
+  function autoGlide(){
+   for(var c=0;c<sum;c++){oSubLi[c].className='';};
+   clearTimeout(interval);
+   if(a==(parseInt(sum)-1)){
+    for(var c=0;c<sum;c++){oSubLi[c].className='';};
+    a=0;
+    oSubLi[a].className="active";
+    interval = setInterval(setValLeft(a),time);
+    timeout = setTimeout(autoGlide,delay);
+   }else{
+    a++;
+    oSubLi[a].className="active";
+    interval = setInterval(setValRight(a),time); 
+    timeout = setTimeout(autoGlide,delay);
+   }
+  }
+ 
+  if(auto){timeout = setTimeout(autoGlide,delay);};
+  for(var i=0;i<sum;i++){ 
+   oSubLi[i].onmouseover = (function(i){
+    return function(){
+     for(var c=0;c<sum;c++){oSubLi[c].className='';};
+     clearTimeout(timeout);
+     clearInterval(interval);
+     oSubLi[i].className="active";
+     if(Math.abs(parseInt($id(oSlider).style[point]))>[(sSingleSize * i)]){
+      interval = setInterval(setValLeft(i),time);
+      this.onmouseout=function(){if(auto){timeout = setTimeout(autoGlide,delay);};};
+     }else if(Math.abs(parseInt($id(oSlider).style[point]))<[(sSingleSize * i)]){
+       interval = setInterval(setValRight(i),time);
+      this.onmouseout=function(){if(auto){timeout = setTimeout(autoGlide,delay);};};
+     }
+    }
+   })(i)   
+  }
+ }
+}
+glide.layerGlide(true,'icon_num','show_pic',620,2,0.1,'left');
+</script>	</td>
+    <td width="500" rowspan="6"><h1 align="center" class="STYLE5" >经典台词推荐</h1>
+  <marquee direction=up height=480 onMouseOut=this.start() onMouseOver=this.stop()
+        scrollamount=2 scrolldelay=50 width="100%">
+     <h3 class="STYLE3"><span class="STYLE2">You jump, I jump.</span></h3>
+	<h3 class="STYLE3"><span class="STYLE2">To make each day count.
+	  </span></h3>
+	<h3 class="STYLE3"><span class="STYLE2">All life is a game of luck.
+	  </span></h3>
+	<h3 class="STYLE3"><span class="STYLE2">We're women. Our choices are never 
+
+easy. </span></h3>
+	<h3 class="STYLE3"><span class="STYLE2"> Jack：I figure life is a gift and I 
+
+don't intend on wasting it. You never know what hand you're going to get dealt next. 
+
+You learn to take life as it comes at you.</span></h3>
+	<h3 class="STYLE3"><span class="STYLE2"> Jack: Listen Rose. You're gonna get 
+
+out of here, you're gonna go on and make lots of babies, and your gonna watch them 
+
+grow. You're gonna die an old... an old lady warm in her bed, but not here not this 
+
+night. Not like this do you understand me? </span> </h3>
+	<h3 class="STYLE3"><span class="STYLE2">Jack: Winning that ticket, Rose, was 
+
+the best thing that ever happened to me... it brought me to you. And I'm thankful 
+
+for that, Rose. I'm thankful. You must do me this honor, Rose. Promise me you'll 
+
+survive. That you won't give up, no matter what happens, no matter how hopeless. 
+
+Promise me now, Rose, and never let go of that promise.</span></h3>
+	<h3 class="STYLE3"><span class="STYLE2">
+God shall wipe away all the tears from their eyes, and there shall be no more death. 
+
+Neither shall there be sorrow or dying, neither shall there be any more pain, for 
+
+the former world has passed away.</span></h3>
+    </marquee></td>
+    <td width="207"><h2 align="center"><a href="dianying.html">  电影简介</a></h2></td>
+  </tr>
+    <td align="center"><h2 align="center"><a href="renwu.htm">演员介绍</a></h2></td>
+  </tr>
+    <tr>
+    <td align="center"><h2 align="center"><a href="yingping.htm">电影影评</a></h2></td>
+  </tr>
+  <tr>
+    <td align="center"><h2 align="center"><a href="lianjie.html">电影链接</a></h2></td>
+  </tr>
+    <tr>
+    <td width="207" align="center"><h2 align="center"><a href="yinyue.html"> 其他介绍</a></h2></td>
+  <tr>
+</table>
+<hr size=8  align=center width=150% noshade>
+<div class="bdsharebuttonbox" style="float: center;">
+
+  <h3 align="center"><a href="#Top"><font color="lime">回到页面顶部  
+    </font></a> </h3>
+  <h3 align="center"><br>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  
+style="background-position:0 -52px !important">分享到QQ空间</a>
+     <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到微
+博"style="background-position:0 -104px !important">分享到微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人
+网"style="background-position:0 -208px !important">分享到人人网</a>
+   <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微
+信"style="background-position:0 -1612px !important" >分享到微信</a></h3>
+  <h3 align=center><FONT color=#000000>Copyright &copy;
+		2016&nbsp;&nbsp;&nbsp;&nbsp; 信科嵌130104施艳洲所有</FONT></h3>
+</div>
+</body>
+</html>
